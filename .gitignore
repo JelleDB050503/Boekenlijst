@@ -1,0 +1,72 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+*.user
+*.userprefs
+*.rsuser
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Entity Framework
+*.edmx.diagram
+
+# SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+# Node modules (if using TypeScript/npm)
+node_modules/
+dist/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local environment variables
+.env
+.env.local
+appsettings.Development.json
+
+# IDEs
+.idea/
+*.suo
+*.sln.docstates
+.vscode/
+
+# Testing
+TestResults/
+.coverage/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~
+
+# Azure
+PublishProfiles/
