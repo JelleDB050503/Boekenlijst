@@ -1,5 +1,6 @@
 using Boekenlijst.Components;
 using Boekenlijst.Models;
+using Boekenlijst.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,19 @@ builder.Services.AddDbContext<BoekenLijstContext>(options =>
     )
 );
 
+// Add BoekenLijstFileProcessor service
+builder.Services.AddScoped<BoekenLijstFileProcessor>();
+
 var app = builder.Build();
+
+// Seed the database from file
+using (var scope = app.Services.CreateScope())
+{
+    var processor = scope.ServiceProvider.GetRequiredService<BoekenLijstFileProcessor>();
+    var env = scope.ServiceProvider.GetRequiredService<IHostEnvironment>();
+    var boekenlijstPath = Path.Combine(env.ContentRootPath, "Data", "BOEKENLIJST.txt");
+    processor.ProcessBoekenLijstFile(boekenlijstPath).Wait();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
