@@ -6,8 +6,23 @@ using System.Text.RegularExpressions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -24,7 +39,8 @@ builder.Services.AddScoped<BoekenLijstFileProcessor>();
 
 var app = builder.Build();
 
-// Seed the database from file
+// Seed the database from file (commented out - uncomment if you need to re-seed)
+/*
 using (var scope = app.Services.CreateScope())
 {
     var processor = scope.ServiceProvider.GetRequiredService<BoekenLijstFileProcessor>();
@@ -71,6 +87,7 @@ using (var scope = app.Services.CreateScope())
         freshProcessor.ProcessBoekenLijstFile(boekenlijstPath).Wait();
     }
 }
+*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -80,6 +97,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAll");
 app.UseAuthorization();
 app.MapControllers();
 
