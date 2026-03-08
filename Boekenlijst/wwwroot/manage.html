@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boekenlijst | Manage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/">Boekenlijst</a>
+      <nav class="top-nav">
+        <a href="/">Home</a>
+        <a href="/books.html">Books</a>
+        <a href="/manage.html" class="active">Manage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-body manage-layout">
+    <section class="panel">
+      <h1>Add a Book</h1>
+      <form id="add-book-form" class="book-form">
+        <label>Title<input name="titel" required></label>
+        <label>Author
+          <select name="auteurId" id="author-select" required></select>
+        </label>
+        <label>Status
+          <select name="statusId" id="status-select" required></select>
+        </label>
+        <label>Year<input name="jaaruitgave" type="number" min="0"></label>
+        <label>Series<input name="reeks"></label>
+        <label>Series Order<input name="reeksVolgorde" type="number" min="1"></label>
+        <button class="btn btn-primary" type="submit">Add Book</button>
+      </form>
+      <p id="form-message" class="muted"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Manage Existing Books</h2>
+      <div id="manage-books-list" class="manage-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    initManagePage();
+  </script>
+</body>
+</html>

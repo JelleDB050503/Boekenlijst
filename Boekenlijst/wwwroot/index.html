@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boekenlijst | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/">Boekenlijst</a>
+      <nav class="top-nav">
+        <a href="/" class="active">Home</a>
+        <a href="/books.html">Books</a>
+        <a href="/manage.html">Manage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container hero-page">
+    <section class="hero-card">
+      <p class="eyebrow">Library Dashboard</p>
+      <h1>One place for every book you own, read, and plan to read.</h1>
+      <p class="hero-copy">
+        This website is connected to your Railway database through your API.
+        Browse your catalog, check statuses, and maintain your reading queue.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/books.html">View All Books</a>
+        <a class="btn btn-ghost" href="/manage.html">Manage Books</a>
+      </div>
+    </section>
+
+    <section class="stats-grid" id="home-stats">
+      <article class="stat-card">
+        <h3>Total Books</h3>
+        <p id="stat-total">-</p>
+      </article>
+      <article class="stat-card">
+        <h3>Read</h3>
+        <p id="stat-read">-</p>
+      </article>
+      <article class="stat-card">
+        <h3>To Be Read</h3>
+        <p id="stat-tbr">-</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    initHomePage();
+  </script>
+</body>
+</html>
