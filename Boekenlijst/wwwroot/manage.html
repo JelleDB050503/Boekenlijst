@@ -15,7 +15,7 @@
       <a class="brand" href="/">Boekenlijst</a>
       <nav class="top-nav">
         <a href="/">Home</a>
-        <a href="/books.html">Books</a>
+        <a href="/books.html">Boeken</a>
         <a href="/manage.html" class="active">Manage</a>
       </nav>
     </div>
@@ -23,25 +23,25 @@
 
   <main class="container page-body manage-layout">
     <section class="panel">
-      <h1>Add a Book</h1>
+      <h1>Voeg een Boek Toe</h1>
       <form id="add-book-form" class="book-form">
-        <label>Title<input name="titel" required></label>
-        <label>Author
+        <label>Titel<input name="titel" required></label>
+        <label>Auteur
           <select name="auteurId" id="author-select" required></select>
         </label>
         <label>Status
           <select name="statusId" id="status-select" required></select>
         </label>
-        <label>Year<input name="jaaruitgave" type="number" min="0"></label>
+        <label>Jaar<input name="jaaruitgave" type="number" min="0"></label>
         <label>Series<input name="reeks"></label>
-        <label>Series Order<input name="reeksVolgorde" type="number" min="1"></label>
-        <button class="btn btn-primary" type="submit">Add Book</button>
+        <label>Series Volgorde<input name="reeksVolgorde" type="number" min="1"></label>
+        <button class="btn btn-primary" type="submit">Voeg Boek Toe</button>
       </form>
       <p id="form-message" class="muted"></p>
     </section>
 
     <section class="panel">
-      <h2>Manage Existing Books</h2>
+      <h2>Beheer Bestaande Boeken</h2>
       <div id="manage-books-list" class="manage-list"></div>
     </section>
   </main>
